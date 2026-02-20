@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>Tambah Barang (Dummy Project JSON)</h2>
+<form th:action="@{/product/add}" th:object="${product}" method="post">
+    <input type="text" th:field="*{name}" placeholder="Nama Barang" required />
+    <input type="number" th:field="*{amount}" placeholder="Jumlah" required />
+    <button type="submit">Tambah</button>
+</form>
+
+<h3>Daftar Barang di DB:</h3>
+<ul>
+    <li th:each="p : ${products}" th:text="${p.name} + ' - ' + ${p.amount}"></li>
+</ul>
+</body>
+</html>
